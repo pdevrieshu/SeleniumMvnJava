@@ -9,7 +9,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Testjes2 {
+public class ThuisafgehaaldUtrechtdetail {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -26,18 +26,13 @@ public class Testjes2 {
   }
 
   @Test
-  public void testJes2() throws Exception {
+  public void testThuisafgehaaldUtrechtdetail() throws Exception {
     driver.get(baseUrl + "/");
+    driver.findElement(By.name("homesearchtype")).click();
     driver.findElement(By.name("q")).clear();
     driver.findElement(By.name("q")).sendKeys("Utrecht");
-    driver.findElement(By.name("homesearchtype")).click();
-    for (int second = 0;; second++) {
-    	if (second >= 60) fail("timeout");
-    	try { if (isElementPresent(By.cssSelector("input.button.yellowbutton"))) break; } catch (Exception e) {}
-    	Thread.sleep(1000);
-    }
-
     driver.findElement(By.cssSelector("input.button.yellowbutton")).click();
+    driver.findElement(By.xpath("//div[@id='searchaanbodlist']/ul/li[2]/a/div/h4")).click();
   }
 
   @After
