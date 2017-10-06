@@ -6,6 +6,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -19,8 +20,9 @@ public class ThuisafgehaaldUtrechtdetail {
   public void setUp() throws Exception {
     // Manual path to firefox:
     System.setProperty("webdriver.gecko.driver", "lib\\geckodriver.exe");
+    System.setProperty("webdriver.chrome.driver", "lib\\chromedriver.exe");
 
-    driver = new FirefoxDriver();
+    driver = new ChromeDriver();
     baseUrl = "https://www.thuisafgehaald.nl";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
